@@ -1,0 +1,12 @@
+<ul>
+  <li *ngFor="let comic of comics">
+    {{ comic.id }}
+    <a (click)="redirectToComicDetails(comic.id)">
+      {{ comic.title }}
+      {{ comic.description }}
+      <ng-container *ngIf="comic && comic.images && comic.images.length > 0">
+        <img [src]="comic.images[0].path + '.' + comic.images[0].extension" alt="Imagen" />
+      </ng-container>
+    </a>
+  </li>
+</ul>
